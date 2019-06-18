@@ -1,0 +1,30 @@
+{
+  "name": "fantasygoldcore-lib",
+  "main": "./fantasygoldcore-lib.min.js",
+  "version": "0.0.1",
+  "homepage": "http://fantasygold.io",
+  "authors": [
+    "NicoFGC <nico@fantasygold.io>"
+  ],
+  "description": "A pure, powerful core for your fantasygold project.",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "bitcoin",
+    "bitcore",
+    "btc",
+    "satoshi"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "CONTRIBUTING.md",
+    "gulpfile.js",
+    "lib",
+    "index.js",
+    "karma.conf.js",
+    "npm-shrinkwrap.json",
+    "test"
+  ]
+}
