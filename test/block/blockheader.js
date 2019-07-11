@@ -66,7 +66,7 @@ describe('BlockHeader', function() {
     it('will throw an error if the argument object hash property doesn\'t match', function() {
       (function() {
         var bh = new BlockHeader({
-          hash: '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f',
+          hash: '00000000c2d6c00523c13656709668b65ab59c80c18c33ef22f2c5824542ee8c',
           version: version,
           prevHash: prevblockidbuf,
           merkleRoot: merklerootbuf,
@@ -261,34 +261,34 @@ describe('BlockHeader', function() {
   describe('#getDifficulty', function() {
     it('should get the correct difficulty for block 86756', function() {
       var x = BlockHeader.fromRawBlock(dataRawBlockBuffer);
-      x.bits.should.equal(0x1c3fffc0);
+      x.bits.should.equal(0x1c3fffc0); //TODO
       x.getDifficulty().should.equal(4);
     });
 
     it('should get the correct difficulty for testnet block 552065', function() {
       var x = new BlockHeader({
-        bits: 0x1b00c2a8
+        bits: 0x1b00c2a8 //TODO
       });
       x.getDifficulty().should.equal(86187.62562209);
     });
 
-    it('should get the correct difficulty for livenet block 373043', function() {
+    it('should get the correct difficulty for livenet block 9000', function() {
       var x = new BlockHeader({
-        bits: 0x18134dc1
+        bits: 0x1a014a90
       });
-      x.getDifficulty().should.equal(56957648455.01001);
+      x.getDifficulty().should.equal(12992707.15825298);
     });
 
-    it('should get the correct difficulty for livenet block 340000', function() {
+    it('should get the correct difficulty for livenet block 10000', function() {
       var x = new BlockHeader({
-        bits: 0x1819012f
+        bits: 0x1a01dd78
       });
-      x.getDifficulty().should.equal(43971662056.08958);
+      x.getDifficulty().should.equal(8995147.347339485);
     });
 
     it('should use exponent notation if difficulty is larger than Javascript number', function() {
       var x = new BlockHeader({
-        bits: 0x0900c2a8
+        bits: 0x0900c2a8 //TODO
       });
       x.getDifficulty().should.equal(1.9220482782645836 * 1e48);
     });

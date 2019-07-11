@@ -113,7 +113,7 @@ describe('BlockHeader', function() {
                 (function() {
 
                     var bh = new BlockHeader({
-                        hash: '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f',
+                        hash: '00000000c2d6c00523c13656709668b65ab59c80c18c33ef22f2c5824542ee8c',
                         version: version,
                         prevHash: prevblockidhex,
                         merkleRoot: merkleroothex,

@@ -180,7 +180,7 @@ describe('MerkleBlock', function() {
 
     it('should not match with merkle nodes', function() {
       var b = MerkleBlock(data.JSON[0]);
-
+//TODO
       var hashData = [
         ['3612262624047ee87660be1a707519a443b1c1ce3d248cbfc6c15870f6c5daa2', false],
         ['019f5b01d4195ecbc9398fbf3c3b1fa9bb3183301d7a1fb3bd174fcfa40a2b65', true],

@@ -530,7 +530,7 @@ function Block(arg) {
 }
 
 // https://github.com/bitcoin/bitcoin/blob/b5fa132329f0377d787a4a21c1686609c2bfaece/src/primitives/block.h#L14
-Block.MAX_BLOCK_SIZE = 1000000;
+Block.MAX_BLOCK_SIZE = 8000000;
 Block.PROOF_OF_STAKE = 'proof-of-stake';
 Block.PROOF_OF_WORK = 'proof-of-work';
 /**
@@ -1531,7 +1531,7 @@ BN.prototype.toBuffer = function(opts) {
 
   return buf;
 };
-
+//Check 0x80 or 0c8a
 BN.prototype.toSMBigEndian = function() {
   var buf;
   if (this.cmp(BN.Zero) === -1) {
@@ -1832,7 +1832,7 @@ ECDSA.prototype.sigError = function() {
     return false;
   }
 };
-
+//Check BIP 62 in Chainperams
 ECDSA.toLowS = function(s) {
   //enforce low s
   //see BIP 62, "low S values in signatures"
@@ -2003,7 +2003,7 @@ Hash.hmac = function(hashf, data, key) {
     key.copy(fill);
     key = fill;
   }
-
+//Check This
   var o_key = new Buffer(blocksize);
   o_key.fill(0x5c);
 
@@ -2482,6 +2482,7 @@ Signature.isTxDER = function(buf) {
     //  Non-canonical signature: R length is zero
     return false;
   }
+  //Check This
   if (R[0] & 0x80) {
     //  Non-canonical signature: R value negative
     return false;
@@ -2550,7 +2551,7 @@ Signature.prototype.toTxFormat = function() {
 Signature.SIGHASH_ALL = 0x01;
 Signature.SIGHASH_NONE = 0x02;
 Signature.SIGHASH_SINGLE = 0x03;
-Signature.SIGHASH_ANYONECANPAY = 0x80;
+Signature.SIGHASH_ANYONECANPAY = 0x80; //Check This
 
 module.exports = Signature;
 
@@ -4017,7 +4018,7 @@ HDPrivateKey.prototype.toBuffer = function() {
 HDPrivateKey.DefaultDepth = 0;
 HDPrivateKey.DefaultFingerprint = 0;
 HDPrivateKey.DefaultChildIndex = 0;
-HDPrivateKey.Hardened = 0x80000000;
+HDPrivateKey.Hardened = 0x80000000; //Check if 0x8a
 HDPrivateKey.MaxIndex = 2 * HDPrivateKey.Hardened;
 
 HDPrivateKey.RootElementAlias = ['m', 'M', 'm\'', 'M\''];
@@ -4518,7 +4519,7 @@ HDPublicKey.prototype.toBuffer = function() {
   return BufferUtil.copy(this._buffers.xpubkey);
 };
 
-HDPublicKey.Hardened = 0x80000000;
+HDPublicKey.Hardened = 0x80000000; //Check if 0x8a
 HDPublicKey.RootElementAlias = ['m', 'M'];
 
 HDPublicKey.VersionSize = 4;
@@ -6114,7 +6115,7 @@ Interpreter.SCRIPT_VERIFY_CHECKLOCKTIMEVERIFY = (1 << 9);
 Interpreter.castToBool = function(buf) {
   for (var i = 0; i < buf.length; i++) {
     if (buf[i] !== 0) {
-      // can be negative zero
+      // can be negative zero Check if 0x8a
       if (i === buf.length - 1 && buf[i] === 0x80) {
         return false;
       }
@@ -11300,7 +11301,7 @@ URI.prototype.toString = function() {
   _.extend(query, this.extras);
 
   return URL.format({
-    protocol: 'bitcoin:',
+    protocol: 'bitcoin:', 
     host: this.address,
     query: query
   });
@@ -12781,7 +12782,7 @@ function bidirectionalIndexOf (buffer, val, byteOffset, encoding, dir) {
   // Empty buffer means no match
   if (buffer.length === 0) return -1
 
-  // Normalize byteOffset
+  // Normalize byteOffset //Check 
   if (typeof byteOffset === 'string') {
     encoding = byteOffset
     byteOffset = 0
@@ -55236,7 +55237,7 @@ module.exports={
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bitpay/bitcore-lib.git"
+    "url": "https://github.com/fantasygold/fantasygoldcore-lib.git"
   },
   "browser": {
     "request": "browser-request"

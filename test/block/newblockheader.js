@@ -13,7 +13,7 @@ var should = require('chai').should();
 var dataRawBlockBuffer = fs.readFileSync('test/data/blk86756-testnetnew.dat');
 var dataRawBlockBinary = fs.readFileSync('test/data/blk86756-testnetnew.dat', 'binary');
 var dataRawId = '000000000b99b16390660d79fcc138d2ad0c89a0d044c4201a02bdf1f61ffa11';
-var data = require('../data/blk86756-testnetnew');
+var data = require('../data/blk86756-testnetnew'); //TODO
 var dataRawBlockBinary = fs.writeFileSync('test/data/blk86756-testnetnew.dat', new Buffer('00000020cca2653e81941d2bb260ad7d3e2e7444a8b6f0e15056ca59a93acf5aa4dc0450da4eb969df70e52b83c208d9884149e07266d900e950a2cbcd10f2f3e33c552f11aec258e02a151a00000000473045022100bccf26fd5802065355c85049f20df9e3ad7f713fa985da614934ed38e041273a02202a288cc7bf496bf5c83787b093a49e6908cee4603d7fea8a60f8664dedd7de4e0160019b7d8fdca81280acb9aea479b03f209ccd6b1870966ff9b10bfe3815a3650100000011aec25856e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b42156e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421', 'hex'));
 
 describe('BlockHeader', function() {
@@ -105,7 +105,7 @@ describe('BlockHeader', function() {
         it('will throw an error if the argument object hash property doesn\'t match', function() {
             (function() {
                 var bh = new BlockHeader({
-                    hash: '000000000019d6689c085ae165831e934ff763ae46a2a6c172b3f1b60a8ce26f',
+                    hash: '00000000c2d6c00523c13656709668b65ab59c80c18c33ef22f2c5824542ee8c',
                     version: version,
                     prevHash: prevblockidbuf,
                     merkleRoot: merklerootbuf,
